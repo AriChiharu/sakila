@@ -109,6 +109,7 @@ include_once 'includes/dbh.php';
                 <input type="text" name="description" placeholder="description"/>
                 <input type="number" name="release_year" placeholder="release_year"/>
                 <input type="number" name="language_id" placeholder="language_id"/>
+                <input type="number" name="ori_language_id" placeholder="ori_language_id"/>
                 <input type="number" name="rental_duration" placeholder="rental_duration"/>
                 <input type="number" step="0.01" name="rental_rate" placeholder="rental_rate"/>
                 <input type="number" name="length" placeholder="length"/>
