@@ -22,6 +22,6 @@ if (mysqli_query($con, $sql)) {
     echo "Error: " . $sql . ":-" . mysqli_error($con);
 }
 
-//header("refresh:2; url=../delete.php");
+header("refresh:2; url=../delete.php");
 
 

@@ -6,6 +6,15 @@ include_once 'includes/dbh.php';
 <html lang="en">
 
 <head>
+    <script type="text/javascript">
+        function goToNewPage()
+        {
+            var url = document.getElementById('list').value;
+            if(url != 'none') {
+                window.location = url;
+            }
+        }
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,168 +55,31 @@ include_once 'includes/dbh.php';
         </nav>
 
         <div class="container-fluid">
-            <h1 class="mt-4">Insert</h1>
-            <p>actor</p>
-            <form action="includes/addactor.php" method="post">
-                <input type="number" name="actor_id" placeholder="actor_id"/>
-                <input type="text" name="first_name" placeholder="first_name"/>
-                <input type="text" name="last_name" placeholder="last_name"/>
-                <input type="submit"/>
+            <form>
+                <select name="list" id="list" accesskey="target">
+                    <option value='none' selected>Choose a table</option>
+                    <option value="actor1.php">actor</option>
+                    <option value="address1.php">address</option>
+                    <option value="category1.php">category</option>
+                    <option value="city1.php">city</option>
+                    <option value="country1.php">country</option>
+                    <option value="customer1.php">customer</option>
+                    <option value="film1.php">film</option>
+                    <option value="film_actor1.php">film_actor</option>
+                    <option value="film_category1.php">film_category</option>
+                    <option value="film_feature1.php">film_feature</option>
+                    <option value="inventory1.php">inventory</option>
+                    <option value="language1.php">language</option>
+                    <option value="payment1.php">payment</option>
+                    <option value="rental1.php">rental</option>
+                    <option value="special_features1.php">special_features</option>
+                    <option value="staff1.php">staff</option>
+                    <option value="store1.php">store</option>
+                </select>
+                <input type=button value="Go" onclick="goToNewPage()" />
             </form>
-            <br>
-            <p>address</p>
-            <form action="includes/addaddress.php" method="post">
-                <input type="number" name="address_id" placeholder="address_id"/>
-                <input type="text" name="address" placeholder="address"/>
-                <input type=text" name="address2" placeholder="address2"/>
-                <input type="text" name="district" placeholder="district"/>
-                <input type="number" name="city_id" placeholder="city_id"/>
-                <input type="number" name="postal_code" placeholder="postal_code"/>
-                <input type="tel" name="phone" placeholder="phone"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>category</p>
-            <form action="includes/addcategory.php" method="post">
-                <input type="number" name="category_id" placeholder="category_id"/>
-                <input type="text" name="name" placeholder="name"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>city</p>
-            <form action="includes/addcity.php" method="post">
-                <input type="number" name="city_id" placeholder="city_id"/>
-                <input type="text" name="city" placeholder="city"/>
-                <input type="number" name="country_id" placeholder="country_id"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>country</p>
-            <form action="includes/addcountry.php" method="post">
-                <input type="number" name="country_id" placeholder="country_id"/>
-                <input type="text" name="country" placeholder="country"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>customer</p>
-            <form action="includes/addcustomer.php" method="post">
-                <input type="number" name="customer_id" placeholder="customer_id"/>
-                <input type="number" name="store_id" placeholder="store_id"/>
-                <input type="text" name="first_name" placeholder="first_name"/>
-                <input type="text" name="last_name" placeholder="last_name"/>
-                <input type="email" name="email" placeholder="email"/>
-                <input type="number" name="address_id" placeholder="address_id"/>
-                <input type="number" name="active" placeholder="active"/>
-                <input type="datetime-local" name="create_date" placeholder="create_date"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>film</p>
-            <form action="includes/addfilm.php" method="post">
-                <input type="number" name="film_id" placeholder="film_id"/>
-                <input type="text" name="title" placeholder="title"/>
-                <input type="text" name="description" placeholder="description"/>
-                <input type="number" name="release_year" placeholder="release_year"/>
-                <input type="number" name="language_id" placeholder="language_id"/>
-                <input type="number" name="ori_language_id" placeholder="ori_language_id"/>
-                <input type="number" name="rental_duration" placeholder="rental_duration"/>
-                <input type="number" step="0.01" name="rental_rate" placeholder="rental_rate"/>
-                <input type="number" name="length" placeholder="length"/>
-                <input type="number" step="0.01" name="replacement_cost" placeholder="replacement_cost"/>
-                <input type="text" name="rating" placeholder="rating"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>film_actor</p>
-            <form action="includes/addfilm_actor.php" method="post">
-                <input type="number" name="actor_id" placeholder="actor_id"/>
-                <input type="number" name="film_id" placeholder="film_id"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>film_category</p>
-                <form action="includes/addfilm_category.php" method="post">
-                    <input type="number" name="film_id" placeholder="film_id"/>
-                    <input type="number" name="category_id" placeholder="category_id"/>
-                    <input type="submit"/>
-                </form>
-            <br>
-            <p>film_feature</p>
-            <form action="includes/addfilm_feature.php" method="post">
-                <input type="number" name="film_id" placeholder="film_id"/>
-                <input type="number" name="feature_id" placeholder="feature_id"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>inventory</p>
-            <form action="includes/addinventory.php" method="post">
-                <input type="number" name="inventory_id" placeholder="inventory_id"/>
-                <input type="number" name="film_id" placeholder="film_id"/>
-                <input type="number" name="store_id" placeholder="store_id"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>language</p>
-            <form action="includes/addlanguage.php" method="post">
-                <input type="number" name="language_id" placeholder="language_id"/>
-                <input type="text" name="name" placeholder="name"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>payment</p>
-            <form action="includes/addpayment.php" method="post">
-                <input type="number" name="payment_id" placeholder="payment_id"/>
-                <input type="number" name="customer_id" placeholder="customer_id"/>
-                <input type="number" name="staff_id" placeholder="staff_id"/>
-                <input type="number" name="rental_id" placeholder="rental_id"/>
-                <input type="number" step="0.01" name="amount" placeholder="amount"/>
-                <input type="datetime-local" name="payment_date" placeholder="payment_date"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>rental</p>
-            <form action="includes/addrental.php" method="post">
-                <input type="number" name="rental_id" placeholder="rental_id"/>
-                <input type="datetime-local" name="rental_date" placeholder="rental_date"/>
-                <input type="number" name="inventory_id" placeholder="inventory_id"/>
-                <input type="number" name="customer_id" placeholder="customer_id"/>
-                <input type="datetime-local" name="return_date" placeholder="return_date"/>
-                <input type="number" name="staff_id" placeholder="staff_id"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>special_features</p>
-            <form action="includes/addspecial_features.php" method="post">
-                <input type="number" name="feature_id" placeholder="feature_id"/>
-                <input type="text" name="name" placeholder="name"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>staff</p>
-            <form action="includes/addstaff.php" method="post">
-                <input type="number" name="staff_id" placeholder="staff_id"/>
-                <input type="text" name="first_name" placeholder="first_name"/>
-                <input type="text" name="last_name" placeholder="last_name"/>
-                <input type="number" name="address_id" placeholder="address_id"/>
-                <input type="url" name="picture" placeholder="picture"/>
-                <input type="email" name="email" placeholder="email"/>
-                <input type="number" name="store_id" placeholder="store_id"/>
-                <input type="number" name="active" placeholder="active"/>
-                <input type="text" name="username" placeholder="username"/>
-                <input type="text" name="password" placeholder="password"/>
-                <input type="submit"/>
-            </form>
-            <br>
-            <p>store</p>
-            <form action="includes/addstore.php" method="post">
-                <input type="number" name="store_id" placeholder="store_id"/>
-                <input type="number" name="manager_staff_id" placeholder="manager_staff_id"/>
-                <input type="number" name="address_id" placeholder="address_id"/>
-                <input type="submit"/>
-            </form>
-            <br>
-
         </div>
+
     </div>
     <!-- /#page-content-wrapper -->
 

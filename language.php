@@ -3,6 +3,15 @@
 <html lang="en">
 
 <head>
+    <script type="text/javascript">
+        function goToNewPage()
+        {
+            var url = document.getElementById('list').value;
+            if(url != 'none') {
+                window.location = url;
+            }
+        }
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,6 +58,29 @@
         </nav>
 
         <div class="container-fluid">
+            <form>
+                <select name="list" id="list" accesskey="target">
+                    <option value='none' selected>Choose a table</option>
+                    <option value="actor.php">actor</option>
+                    <option value="address.php">address</option>
+                    <option value="category.php">category</option>
+                    <option value="city.php">city</option>
+                    <option value="country.php">country</option>
+                    <option value="customer.php">customer</option>
+                    <option value="film.php">film</option>
+                    <option value="film_actor.php">film_actor</option>
+                    <option value="film_category.php">film_category</option>
+                    <option value="film_feature.php">film_feature</option>
+                    <option value="inventory.php">inventory</option>
+                    <option value="language.php">language</option>
+                    <option value="payment.php">payment</option>
+                    <option value="rental.php">rental</option>
+                    <option value="special_features.php">special_features</option>
+                    <option value="staff.php">staff</option>
+                    <option value="store.php">store</option>
+                </select>
+                <input type=button value="Go" onclick="goToNewPage()" />
+            </form>
             <?php
             include_once 'includes/dbh.php';
             $sql = "SELECT * FROM language;";

@@ -6,6 +6,15 @@ include_once 'includes/dbh.php';
 <html lang="en">
 
 <head>
+    <script type="text/javascript">
+        function goToNewPage()
+        {
+            var url = document.getElementById('list').value;
+            if(url != 'none') {
+                window.location = url;
+            }
+        }
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,75 +55,30 @@ include_once 'includes/dbh.php';
         </nav>
 
         <div class="container-fluid">
-            <h1 class="mt-4">Select</h1>
-            <form action="actor.php">
-                <input type="submit" value="Actor" />
+            <form>
+                <select name="list" id="list" accesskey="target">
+                    <option value='none' selected>Choose a table</option>
+                    <option value="actor.php">actor</option>
+                    <option value="address.php">address</option>
+                    <option value="category.php">category</option>
+                    <option value="city.php">city</option>
+                    <option value="country.php">country</option>
+                    <option value="customer.php">customer</option>
+                    <option value="film.php">film</option>
+                    <option value="film_actor.php">film_actor</option>
+                    <option value="film_category.php">film_category</option>
+                    <option value="film_feature.php">film_feature</option>
+                    <option value="inventory.php">inventory</option>
+                    <option value="language.php">language</option>
+                    <option value="payment.php">payment</option>
+                    <option value="rental.php">rental</option>
+                    <option value="special_features.php">special_features</option>
+                    <option value="staff.php">staff</option>
+                    <option value="store.php">store</option>
+                </select>
+                <input type=button value="Go" onclick="goToNewPage()" />
             </form>
-            <br>
-            <form action="address.php">
-                <input type="submit" value="Address" />
-            </form>
-            <br>
-            <form action="category.php">
-                <input type="submit" value="Category" />
-            </form>
-            <br>
-            <form action="city.php">
-                <input type="submit" value="City" />
-            </form>
-            <br>
-            <form action="country.php">
-                <input type="submit" value="Country" />
-            </form>
-            <br>
-            <form action="customer.php">
-                <input type="submit" value="Customer" />
-            </form>
-            <br>
-            <form action="film.php">
-                <input type="submit" value="Film" />
-            </form>
-            <br>
-            <form action="film_actor.php">
-                <input type="submit" value="Film_Actor" />
-            </form>
-            <br>
-            <form action="film_category.php">
-                <input type="submit" value="Film_Category" />
-            </form>
-            <br>
-            <form action="film_feature.php">
-                <input type="submit" value="Film_Feature" />
-            </form>
-            <br>
-            <form action="inventory.php">
-                <input type="submit" value="Inventory" />
-            </form>
-            <br>
-            <form action="language.php">
-                <input type="submit" value="Language" />
-            </form>
-            <br>
-            <form action="payment.php">
-                <input type="submit" value="Payment" />
-            </form>
-            <br>
-            <form action="rental.php">
-                <input type="submit" value="Rental" />
-            </form>
-            <br>
-            <form action="special_features.php">
-                <input type="submit" value="Special_Features" />
-            </form>
-            <br>
-            <form action="staff.php">
-                <input type="submit" value="Staff" />
-            </form>
-            <br>
-            <form action="store.php">
-                <input type="submit" value="Store" />
-            </form>
-            <br>
+
 
         </div>
     </div>
