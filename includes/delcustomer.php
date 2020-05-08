@@ -1,11 +1,12 @@
 
 <?php
-$con = mysqli_connect('127.0.0.1','root','');
-if(!$con)
+include_once 'dbh.php';
+
+if(!$conn)
 {
     echo 'Not connected';
 }
-if(!mysqli_select_db($con,'sakila')) {
+if(!mysqli_select_db($conn,'sakila')) {
     echo 'Database not Selected';
 }
 
@@ -16,7 +17,7 @@ $customer_id= $_POST['customer_id'];
 $sql = "DELETE FROM customer WHERE `customer_id` = $customer_id";
 
 
-if (mysqli_query($con, $sql)) {
+if (mysqli_query($conn, $sql)) {
     echo "Record has been deleted successfully !";
 } else {
     echo "Error: " . $sql . ":-" . mysqli_error($con);

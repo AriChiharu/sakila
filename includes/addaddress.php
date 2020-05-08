@@ -1,11 +1,12 @@
 
 <?php
-$con = mysqli_connect('127.0.0.1','root','');
-if(!$con)
+include_once 'dbh.php';
+
+if(!$conn)
 {
     echo 'Not connected';
 }
-if(!mysqli_select_db($con,'sakila')) {
+if(!mysqli_select_db($conn,'sakila')) {
     echo 'Database not Selected';
 }
 
@@ -20,7 +21,7 @@ $phone= $_POST['phone'];
 $sql = "INSERT INTO address (address_id,address, address2, district, city_id, postal_code,phone) VALUES ('$address_id','$address', '$address2','$district', '$city_id', '$postal_code', '$phone')";
 
 
-if (mysqli_query($con, $sql)) {
+if (mysqli_query($conn, $sql)) {
     echo "New record has been added successfully !";
 } else {
     echo "Error: " . $sql . ":-" . mysqli_error($con);

@@ -1,11 +1,12 @@
 
 <?php
-$con = mysqli_connect('127.0.0.1','root','');
-if(!$con)
+include_once 'dbh.php';
+
+if(!$conn)
 {
     echo 'Not connected';
 }
-if(!mysqli_select_db($con,'sakila')) {
+if(!mysqli_select_db($conn,'sakila')) {
     echo 'Database not Selected';
 }
 
@@ -26,7 +27,7 @@ $rating= $_POST['rating'];
 $sql = "INSERT INTO film (film_id,title,description,release_year,language_id,original_language_id,rental_duration,rental_rate,length,replacement_cost,rating) VALUES ('$film_id','$title','$description','$release_year','$language_id','$ori_language_id','$rental_duration','$rental_rate','$length','$replacement_cost','$rating')";
 
 
-if (mysqli_query($con, $sql)) {
+if (mysqli_query($conn, $sql)) {
     echo "New record has been added successfully !";
 } else {
     echo "Error: " . $sql . ":-" . mysqli_error($con);

@@ -1,11 +1,13 @@
 <?php
 
 
-$con = mysqli_connect('127.0.0.1', 'root', '');
-if (!$con) {
+include_once 'dbh.php';
+
+if(!$conn)
+{
     echo 'Not connected';
 }
-if (!mysqli_select_db($con, 'sakila')) {
+if(!mysqli_select_db($conn,'sakila')) {
     echo 'Database not Selected';
 }
 
@@ -21,7 +23,7 @@ $payment_date = $_POST['payment_date'];
 $sql = "INSERT INTO payment (payment_id,customer_id,staff_id,rental_id,amount,payment_date) VALUES ('$payment_id','$customer_id','$staff_id','$rental_id','$amount','$payment_date')";
 
 
-if (mysqli_query($con, $sql)) {
+if (mysqli_query($conn, $sql)) {
     echo "New record has been added successfully !";
 } else {
     echo "Error: " . $sql . ":-" . mysqli_error($con);

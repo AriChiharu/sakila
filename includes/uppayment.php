@@ -1,11 +1,13 @@
 <?php
 
 
-$con = mysqli_connect('127.0.0.1', 'root', '');
-if (!$con) {
+include_once 'dbh.php';
+
+if(!$conn)
+{
     echo 'Not connected';
 }
-if (!mysqli_select_db($con, 'sakila')) {
+if(!mysqli_select_db($conn,'sakila')) {
     echo 'Database not Selected';
 }
 
@@ -21,7 +23,7 @@ $payment_date = $_POST['payment_date'];
 $sql = "UPDATE `payment` SET `customer_id`='".$customer_id."',`staff_id`='".$staff_id."',`rental_id`='".$rental_id."',`amount`='".$amount."',`payment_date`='".$payment_date."' WHERE `payment_id` = $payment_id";
 
 
-if (mysqli_query($con, $sql)) {
+if (mysqli_query($conn, $sql)) {
     echo "Record has been updated successfully !";
 } else {
     echo "Error: " . $sql . ":-" . mysqli_error($con);

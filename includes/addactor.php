@@ -1,11 +1,12 @@
 
 <?php
-$con = mysqli_connect('127.0.0.1','root','');
-if(!$con)
+include_once 'dbh.php';
+
+if(!$conn)
 {
      echo 'Not connected';
 }
-if(!mysqli_select_db($con,'sakila')) {
+if(!mysqli_select_db($conn,'sakila')) {
     echo 'Database not Selected';
 }
 
@@ -17,10 +18,10 @@ $last_name= $_POST['last_name'];
 $sql = "INSERT INTO actor (actor_id,first_name, last_name) VALUES ('$actor_id','$first_name', '$last_name')";
 
 
-    if (mysqli_query($con, $sql)) {
+    if (mysqli_query($conn, $sql)) {
         echo "New record has been added successfully !";
     } else {
-        echo "Error: " . $sql . ":-" . mysqli_error($con);
+        echo "Error: " . $sql . ":-" . mysqli_error($conn);
     }
 
 header("refresh:2; url=../insert.php");

@@ -1,13 +1,15 @@
 <?php
 
 
-$con = mysqli_connect('127.0.0.1', 'root', '');
-if (!$con) {
+include_once 'dbh.php';
+
+if(!$conn)
+{
     echo 'Not connected';
 }
-if (!mysqli_select_db($con, 'sakila')) {
+if(!mysqli_select_db($conn,'sakila')) {
     echo 'Database not Selected';
-}
+}}
 
 
 $film_id = $_POST['film_id'];
@@ -16,7 +18,7 @@ $film_id = $_POST['film_id'];
 
 $sql = "DELETE FROM film_category WHERE `film_id`=$film_id ";
 
-if (mysqli_query($con, $sql)) {
+if (mysqli_query($conn, $sql)) {
     echo "Record has been deleted successfully !";
 } else {
     echo "Error: " . $sql . ":-" . mysqli_error($con);
